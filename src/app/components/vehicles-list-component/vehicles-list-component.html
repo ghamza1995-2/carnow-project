@@ -1,5 +1,5 @@
 <div class="vehicles-list-container">
-  @for (vehicle of vehicles; track vehicle.id) {
+  @for (vehicle of vehicles$ | async; track vehicle.id) {
   <app-vehicle-card [vehicle]="vehicle" />
   } @empty {
   <p>There are no vehicles.</p>

@@ -7,7 +7,7 @@ import { VEHICLES_DATA } from '../data/vehicles.data';
   providedIn: 'root',
 })
 export class VehiclesService {
-  getVehicles(): Observable<Vehicle[]> {
+  loadVehicles(): Observable<Vehicle[]> {
     return of(VEHICLES_DATA);
   }
 }
