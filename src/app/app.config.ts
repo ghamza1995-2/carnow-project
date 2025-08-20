@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideStore } from '@ngxs/store';
+import { withNgxsLoggerPlugin } from '@ngxs/logger-plugin';
 
 import { routes } from './app.routes';
 
@@ -13,6 +14,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideStore(),
+    provideStore([], withNgxsLoggerPlugin()),
   ],
 };
