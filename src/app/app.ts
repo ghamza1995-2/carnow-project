@@ -6,7 +6,7 @@ import { HeaderComponent } from './components/header-component/header-component'
   selector: 'app-root',
   imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected title = 'carnow-project';
