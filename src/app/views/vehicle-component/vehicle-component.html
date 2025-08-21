@@ -1,1 +1,97 @@
-<p>vehicle-component works!</p>
+<div class="vehicle-container">
+  <!-- Back button -->
+  <div>
+    <button [routerLink]="['/']" matButton>
+      <mat-icon>chevron_left</mat-icon>
+      Back
+    </button>
+  </div>
+
+  @if (vehicle) {
+  <div class="vehicle-cards-container">
+    <!-- Vehicle details card -->
+    <mat-card appearance="outlined">
+      <mat-card-header class="card-title">
+        <mat-card-title>
+          <b>Vehicle Details</b>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul class="details">
+          <li>
+            <span><b>Make</b></span>
+            <span>{{ vehicle.make }}</span>
+          </li>
+          <li>
+            <span><b>Model</b></span>
+            <span>{{ vehicle.model }}</span>
+          </li>
+          <li>
+            <span><b>Colour</b></span>
+            <span>{{ vehicle.colour }}</span>
+          </li>
+          <li>
+            <span><b>Year</b></span>
+            <span>{{ vehicle.year }}</span>
+          </li>
+          <li>
+            <span><b>Mileage</b></span>
+            <span>{{ vehicle.mileage | number }} miles</span>
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Finance calculator card -->
+    <mat-card appearance="outlined">
+      <mat-card-header class="card-title">
+        <mat-card-title>
+          <b>Finance Calculator</b>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul class="finance">
+          <li>
+            <span><strong>Vehicle price</strong></span>
+            <span>{{ vehicle.price | currency: 'GBP':'symbol':'1.0-0' }}</span>
+          </li>
+          <li>
+            <span><strong>Term (months)</strong></span>
+            <mat-form-field appearance="outline">
+              <mat-select [formControl]="term">
+                @for (termItem of termList; track termItem) {
+                <mat-option [value]="termItem"> {{ termItem }} </mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <li>
+            <span><strong>Deposit</strong></span>
+            <mat-form-field appearance="outline">
+              <input
+                [currencyMask]="{ prefix: '£ ', precision: 0 }"
+                type="text"
+                matInput
+                [formControl]="deposit"
+              />
+            </mat-form-field>
+          </li>
+          <li>
+            <span><strong>Amount to credit</strong></span>
+            <span
+              >{{ (creditAmount$ | async) | currency: 'GBP':'symbol':'1.0-0'
+              }}</span
+            >
+          </li>
+          <li>
+            <span><strong>Monthly payment</strong></span>
+            <span>{{ monthlyPayment | currency: 'GBP':'symbol':'1.2-2' }}</span>
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  } @else {
+  <p>No vehicle found</p>
+  }
+</div>
