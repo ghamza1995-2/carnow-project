@@ -1,5 +1,27 @@
+@let vehicles = vehicles$ | async;
+
 <div class="vehicles-list-container">
-  @for (vehicle of vehicles$ | async; track vehicle.id) {
+  <div class="sort-options">
+    <mat-form-field appearance="outline">
+      <mat-label>Sort by...</mat-label>
+      <mat-select [formControl]="sortOption">
+        @for (item of sortOptionList; track item) {
+        <mat-option [value]="item"> {{ item | titlecase }} </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sort order...</mat-label>
+      <mat-select [formControl]="sortOrder">
+        @for (item of sortOrderList; track item) {
+        <mat-option [value]="item"> {{ item | titlecase }} </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  @for (vehicle of sort(vehicles); track vehicle.id) {
   <app-vehicle-card [vehicle]="vehicle" />
   } @empty {
   <p>There are no vehicles.</p>

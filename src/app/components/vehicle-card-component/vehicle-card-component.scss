@@ -1,30 +1,13 @@
-@use "@angular/material" as mat;
-
-:host {
-  @include mat.card-overrides(
-    (
-      outlined-container-shape: 4px,
-    )
-  );
-
-  @include mat.button-overrides(
-    (
-      filled-container-shape: 4px,
-    )
-  );
-}
-
 .card-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 16px 16px 0 16px;
 }
 
 .price {
-  font-size: 2em;
+  font-size: 1.2em;
   font-weight: 600;
-  padding: 16px 0px;
-  border-bottom: 1px solid var(--mat-sys-outline-variant);
 }
 
 .details {
@@ -39,4 +22,12 @@
   padding: 16px;
   display: flex;
   justify-content: flex-end;
+}
+
+.card-title {
+  padding: 16px;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

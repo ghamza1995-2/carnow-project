@@ -1,0 +1,45 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vehicle-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vehicle-cards-container {
+  display: flex;
+  gap: 16px;
+
+  mat-card {
+    flex: 1;
+  }
+}
+
+.card-title {
+  padding: 16px;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+ul.finance,
+ul.details {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--mat-sys-outline-variant);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 85px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
