@@ -7,6 +7,11 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 To quickly run the project for a local demo, pull the code down to your local machine and run:
 
 ```bash
+npm install
+```
+And then:
+
+```bash
 ng serve
 ```
 
